@@ -1,17 +1,17 @@
-commande effectué :
+<p>commande effectué :</p>
 
-Symfony server:start
-php bin/console make:entity
->Lieu
-php bin/console make:migration
-php bin/console doctrine:migrations:migrate
-php bin/console make:entity
->Evenement
-php bin/console make:migration
-php bin/console doctrine:migrations:migrate
-php bin/console make:controller
->EvenementController
-php bin/console make:form
->EvenementType
-php bin/console make:form
->LieuType
+<p>Symfony server:start</p>
+<p>php bin/console make:entity</p>
+<p>>Lieu</p>
+<p>php bin/console make:migration</p>
+<p>php bin/console doctrine:migrations:migrate</p>
+<p>php bin/console make:entity</p>
+<p>>Evenement</p>
+<p>php bin/console make:migration</p>
+<p>php bin/console doctrine:migrations:migrate</p>
+<p>php bin/console make:controller</p>
+<p>>EvenementController</p>
+<p>php bin/console make:form</p>
+<p>>EvenementType</p>
+<p>php bin/console make:form</p>
+<p>>LieuType</P>
