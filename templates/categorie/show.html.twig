@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ categorie.nom }}{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h1>{{ categorie.nom }}</h1>
+
+        <h2>Articles de cette catégorie</h2>
+        {% for article in categorie.articles %}
+            <article>
+                <h3><a href="{{ path('app_article_show', { id: article.id }) }}">{{ article.titre }}</a></h3>
+                <p>{{ article.contenu }}</p>
+                <p>Écrit par {{ article.auteur.nom }}</p>
+            </article>
+        {% else %}
+            <p>Aucun article dans cette catégorie pour le moment.</p>
+        {% endfor %}
+
+        <a href="{{ path('app_categorie') }}">Retour aux catégories</a>
+    </div>
+{% endblock %}
