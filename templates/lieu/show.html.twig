@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ lieu.code_postal }}{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h1>{{ lieu.code_postal }}</h1>
+
+        <h2>événement de ce lieu</h2>
+        {% for lieu in lieu.evenement %}
+            <evenement>
+                <h3><a href="{{ path('app_evenement_show', { id: evenement.id }) }}">{{ evenement.titre }}</a></h3>
+                <p>{{ evenement.description }}</p>
+                <p>Organiser par {{ evenement.createur.nom }}</p>
+            </evenement>
+        {% else %}
+            <p>Aucun événement dans ce lieu pour le moment.</p>
+        {% endfor %}
+
+        <a href="{{ path('app_lieu') }}">Retour aux lieux</a>
+    </div>
+{% endblock %}

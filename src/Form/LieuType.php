@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Lieu;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,6 +16,9 @@ class LieuType extends AbstractType
             ->add('adresse')
             ->add('ville')
             ->add('code_postal')
+            ->add('enregister', SubmitType::class, [
+                'label' => 'Ajouter le lieu',
+            ])
         ;
     }
 

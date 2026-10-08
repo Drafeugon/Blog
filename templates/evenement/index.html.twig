@@ -10,6 +10,19 @@
 
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
+    
+    {% for evenement in evenement %}
+            <h2><a href="{{ path('app_evenement_show', { id: evenement.id }) }}">{{ evenement.titre }}</a></h2>
+            <p>{{ evenement.description }}</p>
+            <p>Organiser par {{ evenement.createur.nom }}</p>
+        {% else %}
+            <p>Aucun événement pour le moment.</p>
+        {% endfor %}
+    <a href="{{ path('app_evenement_show', {'id': evenement.id}) }}">Voir l'événement</a>
+    <a href="{{ path('app_lieu', {'id': evenement.id}) }}">Voir les lieux</a>
+    <a href="{{ path('app_evenement_add', {'id': evenement.id}) }}">Ajouter un événement</a>
+    <a href="{{ path('app_evenement_edit', {'id': evenement.id}) }}">Modifier</a>
+    <a href="{{ path('app_evenement_delete', {'id': evenement.id}) }}">Supprimer</a>
 
 </div>
 {% endblock %}
