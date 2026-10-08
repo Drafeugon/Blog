@@ -3,9 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Evenement;
+use App\Entity\Lieu;
 use App\Entity\user;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,12 +19,17 @@ class EvenementType extends AbstractType
             ->add('nom')
             ->add('description')
             ->add('date')
-            ->add('lieu')
+            ->add('Lieux', EntityType::class, [
+                'class' => Lieu::class,
+                'choice_label' => 'id',
+            ])
             ->add('createur', EntityType::class, [
                 'class' => user::class,
                 'choice_label' => 'id',
             ])
-        ;
+            ->add('enregister', SubmitType::class, [
+                'label' => 'Enregistrer l’article',
+            ]);;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

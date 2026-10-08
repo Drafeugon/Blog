@@ -29,6 +29,10 @@ class Evenement
     #[ORM\JoinColumn(nullable: false)]
     private ?user $createur = null;
 
+    #[ORM\ManyToOne(inversedBy: 'evenements')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Lieu $Lieux = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -70,18 +74,6 @@ class Evenement
         return $this;
     }
 
-    public function getLieu(): ?string
-    {
-        return $this->lieu;
-    }
-
-    public function setLieu(string $lieu): static
-    {
-        $this->lieu = $lieu;
-
-        return $this;
-    }
-
     public function getCreateur(): ?user
     {
         return $this->createur;
@@ -90,6 +82,23 @@ class Evenement
     public function setCreateur(?user $createur): static
     {
         $this->createur = $createur;
+
+        return $this;
+    }
+
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
+
+    public function getLieux(): ?Lieu
+    {
+        return $this->Lieux;
+    }
+
+    public function setLieux(?Lieu $Lieux): static
+    {
+        $this->Lieux = $Lieux;
 
         return $this;
     }
